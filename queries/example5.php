@@ -1,9 +1,4 @@
 <?php
-require_once('../uniweb_client.php');
-require_once('credentials.php');
-
-// Get authorized API client
-$client = UNIWeb_Client::getClient(CLIENT_NAME, CLIENT_SECRET, HOMEPAGE);
 
 // Prepare a 'read' request
 $resources = array('profile/membership_information', 'profile/research_interests');

@@ -1,15 +1,10 @@
 <?php
-require_once('../uniweb_client.php');
-require_once('credentials.php');
 
 /**
  * In this example we will add/edit the values of "select" fields. That is, fields that
  * offer a dropdown of options to the users. In this example, we will pass the options as
  * text instead of retrieving the IDs of the options first.
  */
-
-// Get authorized API client
-$client = UNIWeb_Client::getClient(CLIENT_NAME, CLIENT_SECRET, HOMEPAGE);
 
 // Set the login name of the user whose profile we want to write to.
 $id = 'macrini@proximify.ca';

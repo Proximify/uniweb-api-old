@@ -1,9 +1,4 @@
 <?php
-require_once('../uniweb_client.php');
-require_once('credentials.php');
-
-// Get authorized API client
-$client = UNIWeb_Client::getClient(CLIENT_NAME, CLIENT_SECRET, HOMEPAGE);
 
 // When selecting one member, you can use the property 'id' instead of a filter. In that
 // case, the response won't be an array of members but just the member that you need

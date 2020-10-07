@@ -9,11 +9,19 @@
  * @version   1.1.0 Uniweb API
  */
 
-require('remote_connection.php');
+namespace Proximify\Uniweb\API;
+
+use Exception;
+
+require 'RemoteConnection.php';
 
 class UniwebClient
 {
 	const FILES = '_files_';
+
+	public $clientName;
+	public $homepage;
+	protected $clientSecret;
 
 	/**
 	 * Constructs a UNIWeb client with given credentials. There is also a helper static
@@ -411,6 +419,17 @@ class UniwebClient
 		}
 
 		echo '<pre>' . print_r($response, true) . '</pre>';
+	}
+
+
+	/**
+	 * Helper function to log data to the debug console.
+	 *
+	 * @return void
+	 */
+	public static function log($data)
+	{
+		error_log(print_r($data, true));
 	}
 
 	/**

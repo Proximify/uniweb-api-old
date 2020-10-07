@@ -1,7 +1,5 @@
 <?php
-require_once('../uniweb_client.php');
-require_once('credentials.php');
-require_once('assets/example1/markup_utils.php');
+require_once 'markup_utils.php';
 
 /**
  * In this example we build a Faculty webpage using profile information in the
@@ -10,20 +8,19 @@ require_once('assets/example1/markup_utils.php');
  */
 
 // Get authorized API client
-$client = UNIWeb_Client::getClient(CLIENT_NAME, CLIENT_SECRET, HOMEPAGE);
-$filter = array('unit' => 'Engineering', 'title' => 'Professor');
+$filter = ['unit' => 'Faculty of Medicine', 'title' => 'Professor'];
 
-$resources = array(
+$resources = [
 	'profile/membership_information',
 	'profile/research_interests',
 	'profile/research_description'
-);
+];
 
-$params = array('resources' => $resources, 'filter' => $filter, 'language' => 'en');
+$params = ['resources' => $resources, 'filter' => $filter, 'language' => 'en'];
 
 // Retrieve the data from the server (true makes it return an assoc array)
 $response = $client->read($params, true);
-$items = array();
+$items = [];
 
 // Create the HTML of items in a table of faculty members
 foreach ($response as $memberId => $member) {
@@ -50,7 +47,7 @@ foreach ($response as $memberId => $member) {
 
 	$picture = sprintf(
 		'%spicture.php?action=display&contentType=members&id=%d&quality=large',
-		HOMEPAGE,
+		$client->homepage,
 		$memberId
 	);
 
@@ -58,9 +55,8 @@ foreach ($response as $memberId => $member) {
 	$items[] = makeTableItem($picture, $name, $title, $interests, $description);
 }
 
-
 // Joint all items in a single string value
 $tableData = implode('', $items);
 
 // Include the full page HTML. In there, we echo the value of $tableData.
-include('assets/example1/example1_template.html');
+include 'page_template.html';

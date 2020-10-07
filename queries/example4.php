@@ -1,6 +1,4 @@
 <?php
-require_once('../uniweb_client.php');
-require_once('credentials.php');
 
 /**
  * In this example we add new items into a CV section. In particular, we chose a
@@ -17,9 +15,6 @@ require_once('credentials.php');
  * that the other. Here the first request is defined as a JSON string and the other
  * ones as PHP arrays.
  */
-
-// Get authorized API client
-$client = UNIWeb_Client::getClient(CLIENT_NAME, CLIENT_SECRET, HOMEPAGE);
 
 $id = 'macrini@proximify.ca';
 $sectionName = 'cv/contributions/presentations';

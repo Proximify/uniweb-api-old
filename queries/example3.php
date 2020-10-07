@@ -1,14 +1,9 @@
 <?php
-require_once('../uniweb_client.php');
-require_once('credentials.php');
 
 /**
  * In this example we focus on the actions to request information about sections, fields
  * and the valid options for drop-down fields.
  */
-
-// Get authorized API client
-$client = UNIWeb_Client::getClient(CLIENT_NAME, CLIENT_SECRET, HOMEPAGE);
 
 // Request the information about a section, its field names and the type of each field.
 $resources = array('cv/contributions/presentations');

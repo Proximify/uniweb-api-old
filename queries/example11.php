@@ -1,14 +1,9 @@
 <?php
-require_once('../uniweb_client.php');
-require_once('credentials.php');
 
 /**
- * In this example we will change the profile picture of a user with an image given as a
- * local file path. If you want to use a URL instead, please read the previous example file.
+ * In this example we will change the profile picture of a user with an image given
+ * as a URL. If you want to use a file instead, please read the next example file.
  */
-
-// Get authorized API client
-$client = UNIWeb_Client::getClient(CLIENT_NAME, CLIENT_SECRET, HOMEPAGE);
 
 // Set the login name of the user whose profile we want to write to.
 $id = 'macrini@proximify.ca';
@@ -19,15 +14,11 @@ $id = 'macrini@proximify.ca';
 // we don't send a middle name, and the user had set a middle name, then the existing
 // middle name will be unchanged.
 
-$imagePath = '/Users/Shared/EEM-small-size.png';
-$mimeType = 'image/' . pathinfo($imagePath, PATHINFO_EXTENSION);
-$fileName = 'profilePicture'; // A unique name for the file (with no periods in it)
+$imageUrl = 'http://socialsciences.uottawa.ca/sites/default/files/public/fss_dean-69111_new.png';
 
-$resources = array('profile/picture' => array('attachment' => $fileName));
+$resources = array('profile/picture' => array('url' => $imageUrl));
 
 $request = array('id' => $id, 'resources' => $resources);
-
-$client->addFileAttachment($request, $fileName, $imagePath, $mimeType);
 
 $response = $client->updatePicture($request);
 

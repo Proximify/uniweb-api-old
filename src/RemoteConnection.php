@@ -9,6 +9,8 @@
  * @version   1.1.0 Uniweb API
  */
 
+namespace Proximify\Uniweb\API;
+
 /**
  * Connects to a remote server and fetches assets from it.
  */
