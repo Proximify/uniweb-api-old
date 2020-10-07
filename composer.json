@@ -1,0 +1,14 @@
+{
+    "name": "proximify/uniweb-api",
+    "description": "Official API for the UNIWeb application.",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Proximify Inc",
+            "email": "support@proximify.ca"
+        }
+    ],
+    "minimum-stability": "stable",
+    "require": {}
+}
